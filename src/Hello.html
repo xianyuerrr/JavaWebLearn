@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--约束-->
+
+<html lang="zh-CN" xml:lang="zh">
+
+<head>
+<!--head，表示头部信息，一般包含title标签、css样式、js代码-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    导入css文件-->
+    <link rel="stylesheet" href="Hello.css">
+    <style type="text/css">
+        /*id 选择器*/
+        #a1 {
+            color: black;
+            background-color: green;
+        }
+
+        /*类选择器*/
+        .c1 {
+            color: bisque;
+            background-color: purple;
+        }
+    </style>
+
+<!--    script 标签在 引入js文件 和 内嵌js代码 之间只能二选一-->
+    <script type="text/javascript" src="Hello.js"></script>
+    <script type="text/javascript">
+        // var a = 12;
+        // var b = "12";
+        // alert(a == b);
+        var arr = []
+        alert(arr.length)
+        arr[0] = 12
+        alert(arr.length)
+        arr[2] = "abc"
+        for (var i = 0; i < arr.length; i++) {
+            alert(arr[i])
+        }
+    </script>
+</head>
+
+
+<body>
+<!--页面的主体内容-->
+    hello
+    <div id="a1">A</div>
+    <div class="c1">B</div>
+    <div class="c1">C</div>
+</body>
+
+</html>

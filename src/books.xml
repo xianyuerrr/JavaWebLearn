@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<books>
+    <book sn="SN1">
+        <name>肖八</name>
+        <author>肖秀荣</author>
+    </book>
+    <book sn="SN2">
+        <name>肖四</name>
+        <author>肖秀荣</author>
+    </book>
+</books>
