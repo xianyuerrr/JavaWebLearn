@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>com.xianyue.servlet.AddServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TestLife</servlet-name>
+        <servlet-class>com.xianyue.servlet.TestLife</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <!--默认在第一次调用 Servlet 服务时实例化 Servlet。配置 load-on-startup 之后就是在容器创建时实例化 servlet。
+         数字越小，启动越靠前-->
+    </servlet>
+    
+    <servlet>
+        <servlet-name>TestSession</servlet-name>
+        <servlet-class>com.xianyue.servlet.TestSession</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TestLife</servlet-name>
+        <url-pattern>/TestLife</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TestSession</servlet-name>
+        <url-pattern>/TestSession</url-pattern>
+    </servlet-mapping>
+
+    <!--
+    流程：
+        1. 用户发请求，action = add
+        2. 项目中，web.xml 中在 <servlet-mapping> 中找到 url-pattern = /add
+        3. 找到对应的 servlet-name = AddServlet
+        4. 找到和 <servlet-mapping> 中 servlet-name 一致的 <servlet>
+        5. 在此 <servlet> 中找到 servlet-name 对应的 servlet-class
+        6. 用户发送的是 post 请求（method = post），tomcat 执行 AddServlet 类的 doPost(request, response) 方法
+    -->
+
+</web-app>
