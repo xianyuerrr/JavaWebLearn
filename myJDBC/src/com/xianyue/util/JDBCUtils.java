@@ -21,7 +21,7 @@ public class JDBCUtils {
     public static Connection getConnection() throws ClassNotFoundException, IOException, SQLException {
         InputStream inputStream = ClassLoader
                 .getSystemClassLoader()
-                .getResourceAsStream("com/xianyue/jdbc.properties");
+                .getResourceAsStream("jdbc.properties");
 
         Properties properties = new Properties();
         properties.load(inputStream);

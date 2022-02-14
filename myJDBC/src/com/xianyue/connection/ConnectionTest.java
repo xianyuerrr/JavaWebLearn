@@ -97,7 +97,7 @@ public class ConnectionTest {
         InputStream inputStream = ConnectionTest
                 .class
                 .getClassLoader()
-                .getResourceAsStream("com/xianyue/jdbc.properties");
+                .getResourceAsStream("jdbc.properties");
 
         Properties pros = new Properties();
         pros.load(inputStream);

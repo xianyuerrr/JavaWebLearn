@@ -55,7 +55,7 @@ public class StatementTest {
         InputStream inputStream = StatementTest
                 .class
                 .getClassLoader()
-                .getResourceAsStream("com/xianyue/jdbc.properties");
+                .getResourceAsStream("jdbc.properties");
         Properties properties = new Properties();
         properties.load(inputStream);
 
