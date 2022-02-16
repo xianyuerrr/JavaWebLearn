@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div_container">
+        <div id="div_grade_list">
+            <form th:action="@{/update}" method="post">
+                <table>
+                    <tr>
+                        <th>课程代码</th>
+                        <td>
+                            <input type="text" name="classCode" th:value="${grade != null ? grade.getClassCode() : ''}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>课程名称</th>
+                        <td>
+                            <input type="text" name="className" th:value="${grade != null ? grade.getClassName() : ''}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>学分</th>
+                        <td>
+                            <input type="text" name="credit" th:value="${grade != null ? grade.getCredit() : ''}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>学年学期</th>
+                        <td><input type="text" name="semester" th:value="${grade != null ? grade.getSemester() : ''}"/></td>
+                    </tr>
+                    <tr>
+                        <th>平时成绩</th>
+                        <td><input type="text" name="usualGrades" th:value="${grade != null ? grade.getUsualGrades() : ''}"/></td>
+                    </tr>
+                    <tr>
+                        <th>期末成绩</th>
+                        <td><input type="text" name="finalGrades" th:value="${grade != null ? grade.getFinalGrades() : ''}"/></td>
+                    </tr>
+                    <tr>
+                        <th>总成绩</th>
+                        <td><input type="text" name="overallGrades" th:value="${grade != null ? grade.getOverallGrades() : ''}"/></td>
+                    </tr>
+                </table>
+                <input type="submit" value="更新" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

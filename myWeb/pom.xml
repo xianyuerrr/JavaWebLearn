@@ -19,6 +19,26 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.28</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
+        <!--<dependency>-->
+        <!--    <groupId>org.thymeleaf</groupId>-->
+        <!--    <artifactId>thymeleaf</artifactId>-->
+        <!--    <version>RELEASE</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>3.0.12.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <!-- jsoup HTML parser library @ https://jsoup.org/ -->
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+
 
     </dependencies>
 

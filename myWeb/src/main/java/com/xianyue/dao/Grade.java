@@ -27,6 +27,18 @@ public class Grade {
         map.put("overallGrades", "总成绩");
     }
 
+    public Grade() {}
+
+    public Grade(String classCode, String className, Float credit, String semester, Float usualGrades, Float finalGrades, Float overallGrades) {
+        this.classCode = classCode;
+        this.className = className;
+        this.credit = credit;
+        this.semester = semester;
+        this.usualGrades = usualGrades;
+        this.finalGrades = finalGrades;
+        this.overallGrades = overallGrades;
+    }
+
     public String getClassCode() {
         return classCode;
     }

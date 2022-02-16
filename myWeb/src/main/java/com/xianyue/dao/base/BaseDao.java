@@ -1,4 +1,4 @@
-package com.xianyue.dao;
+package com.xianyue.dao.base;
 
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -93,8 +93,10 @@ public abstract class BaseDao<T> {
         pwd = properties.getProperty("password");
 
         try {
+            System.out.println(driver);
+            Class.forName(driver);
             connection = DriverManager.getConnection(url, user, pwd);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getClass() + " : " + e.getMessage());
             System.out.println("连接数据库失败");
             return null;

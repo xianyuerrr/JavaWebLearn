@@ -1,0 +1,61 @@
+*{
+    color: threeddarkshadow;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    margin:0;
+    padding:0;
+    text-align:center;
+    background-color: burlywood;
+}
+
+div{
+    position:relative;
+}
+
+th, td {
+    margin: 0 2px 0 2px;
+    border: 1px solid cornflowerblue;
+}
+
+.container{
+    width:80%;
+    height:100%;
+    border:0px solid blue;
+    margin-left:10%;
+    background-color: honeydew;
+    border-radius:8px;
+}
+.list{
+    width:100%;
+}
+
+.title {
+    margin: 0 10% 0 10%;
+    padding: 30px 10% 30px 10%;
+    background-color: aquamarine;
+}
+
+.tbl{
+    width:80%;
+    line-height:28px;
+    margin-top:16px;
+    margin-left:10%;
+}
+
+.center{
+    text-align:center;
+}
+
+.f30{
+    font-size: 30px;
+}
+
+.r {
+    width: 30%;
+    margin-left: 60%;
+}

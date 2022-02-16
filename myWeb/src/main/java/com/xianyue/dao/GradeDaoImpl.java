@@ -1,5 +1,7 @@
 package com.xianyue.dao;
 
+import com.xianyue.dao.base.BaseDao;
+
 import java.util.List;
 
 /**
@@ -42,7 +44,7 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
                 "FROM grade " +
                 "WHERE 课程代码 = ?;";
         List<Grade> list = executeQuery(sql, ClassCode);
-        return list == null ? null :list.get(0);
+        return list.isEmpty() ? null :list.get(0);
     }
 
     /**
@@ -71,6 +73,10 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
      */
     @Override
     public int add(Grade grade) {
+        if (getGradeByClassCode(grade.getClassCode()) != null) {
+            System.out.println("主键 classCode 为 " + grade.getClassCode() + " 的 Grade 对象已存在，将其数据更新。");
+            return update(grade);
+        }
         String sql = "INSERT INTO grade (课程代码, 课程名称, 学分, 学年学期, 平时成绩, 期末成绩, 总成绩) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
         return executeUpdate(sql,
@@ -91,6 +97,10 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
      */
     @Override
     public int update(Grade grade) {
+        if (getGradeByClassCode(grade.getClassCode()) == null) {
+            System.out.println("主键 classCode 为 " + grade.getClassCode() + " 的 Grade 对象不存在，将其添加到数据库中。");
+            return add(grade);
+        }
         String sql = "UPDATE grade SET " +
                 "课程名称 = ?, " +
                 "学分 = ?, " +
@@ -110,16 +120,16 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
                 );
     }
 
+    @Override
+    public int delete(String classCode) {
+        String sql = "DELETE FROM grade WHERE 课程代码 = ?";
+        int res = executeUpdate(sql, classCode);
+        return res;
+    }
+
     /**
      * @Description 删除数据
      * @param grade
      * @return
      */
-    @Override
-    public int delete(Grade grade) {
-        String sql = "DELETE FROM grade WHERE 课程代码 = ?";
-        int res = executeUpdate(sql, grade.getClassCode());
-        System.out.println("delete : " + res);
-        return res;
-    }
 }

@@ -9,8 +9,8 @@ import java.util.List;
 public interface GradeDao {
     List<Grade> getGradeList();
     Grade getGradeByClassCode(String ClassCode);
-    List getGradeByClassName(String ClassName);
+    List<Grade> getGradeByClassName(String ClassName);
     int add(Grade grade);
     int update(Grade grade);
-    int delete(Grade grade);
+    int delete(String classCode);
 }

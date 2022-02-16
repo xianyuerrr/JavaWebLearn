@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="list">
+            <p class="center f30 title">欢迎使用成绩单后台管理系统</p>
+            <div class="r">
+                <a th:href="@{/update}">添加新成绩记录</a>
+            </div>
+            <table class="tbl">
+                <tr>
+                    <!--Table Header Cells: <th>-->
+                    <th class="w20">课程代码</th>
+                    <th class="w20">课程名称</th>
+                    <th class="w20">学分</th>
+                    <th class="w20">学年学期</th>
+                    <th class="w20">平时成绩</th>
+                    <th class="w20">期末成绩</th>
+                    <th class="w20">总成绩</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:if="${#lists.isEmpty(session.GradeList)}">
+                    <td colspan="4">对不起，库存为空！</td>
+                </tr>
+                <tr th:unless="${#lists.isEmpty(session.GradeList)}" th:each="grade : ${session.GradeList}">
+                    <!--Table Data Cell: <td>-->
+                    <!--<td><a th:href="@{'/update?classCode='+${grade.getClassCode()}}" th:text="${grade.getClassCode()}">classCode</a>></td>-->
+                    <td><a th:href="@{/update(classCode=${grade.getClassCode()})}" th:text="${grade.getClassCode()}">classCode</a></td>
+                    <td th:text="${grade.getClassName()}">className</td>
+                    <td th:text="${grade.getCredit()}">Credit</td>
+                    <td th:text="${grade.getSemester()}">Semester</td>
+                    <td th:text="${grade.getUsualGrades()}">usualGrades</td>
+                    <td th:text="${grade.getFinalGrades()}">finalGrades</td>
+                    <td th:text="${grade.getOverallGrades()}">OverallGrades</td>
+                    <td><a th:href="@{/delete(classCode=${grade.getClassCode()})}">删除</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

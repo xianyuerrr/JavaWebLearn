@@ -1,0 +1,868 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <script type="text/javascript">
+        window.$BG_LANG='zh';
+    </script>
+    <script type="text/javascript" src="/eams/static/scripts/jquery/jquery,jquery.ui.core.js?bg=3.4.3"></script>
+    <script type="text/javascript" src="/eams/static/scripts/plugins/jquery-form,jquery-history,jquery-colorbox,jquery-chosen.js?bg=3.4.3"></script>
+    <script type="text/javascript" src="/eams/static/js/plugins/jquery.subscribe,/js/struts2/jquery.struts2,jquery.ui.struts2.js?bg=3.4.3"></script>
+    <script type="text/javascript" src="/eams/static/scripts/beangle/beangle,beangle-ui.js?bg=3.4.3"></script>
+    <script type="text/javascript">var App = {contextPath:"/eams"};var funcInit = function () {jQuery.struts2_jquery.version="3.6.1";beangle.contextPath=App.contextPath;jQuery.scriptPath = App.contextPath+"/static/";jQuery.struts2_jquerySuffix = "";jQuery.ajaxSettings.traditional = true;jQuery.ajaxSetup ({cache: false});};</script>
+    <script type="text/javascript" src="/eams/static/scripts/my97/WdatePicker-4.72.js?compress=no"></script>
+    <link id="jquery_theme_link" rel="stylesheet" href="/eams/static/themes/smoothness/jquery-ui.css?s2j=3.6.1" type="text/css"/>
+    <link id="beangle_theme_link" href="/eams/static/themes/default/beangle-ui,colorbox,chosen.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/eams/static/css/foundation.css" type="text/css"/>
+    <script type="text/javascript" src="/eams/static/scripts/highcharts.js"></script>
+
+    <script src="/eams/static/scripts/require.config.js?v=3"></script>
+    <script>
+        require.baseUrl="/eams/static/scripts";
+    </script>
+    <script src="/eams/static/scripts/require.js"></script>
+    <script type="text/javascript" src="/eams/static/scripts/require.js"></script>
+
+    <!-- backbone & underscore -- fontend MVC framework -->
+    <script type="text/javascript" src="/eams/static/scripts/underscore.min.js"></script>
+    <script type="text/javascript" src="/eams/static/scripts/backbone.min.js"></script>
+    <script type="text/javascript" src="/eams/static/scripts/underscore.string.min.js"></script>
+    <script>
+        require(['underscore.string'], function(_s) {
+            _.str = _s;
+            _.mixin(_.str.exports());
+        });
+        funcInit();
+        //beangle.ajaxhistory = false;
+    </script>
+
+
+</head>
+<body>
+
+<div  style="margin-top:10px;text-align:center;font-weight:bold;" class="ajax_container">成绩列表</div>
+
+
+
+
+<div>总平均绩点：</div>
+<div class="grid">
+
+
+    <table id="grid21344342991" class="gridtable">
+        <thead class="gridhead">
+
+
+        <tr>
+            <th  width="10%" >学年学期</th>
+            <th  width="10%" >课程代码</th>
+            <th  width="10%" >课程序号</th>
+            <th  width="20%" >课程名称</th>
+            <th  width="14%" >课程类别</th>
+            <th  width="5%" >是否选修</th>
+            <th  width="4.5%" >学分</th>
+            <th  width="4.5%" >平时成绩</th>
+            <th  width="4.5%" >期中成绩</th>
+            <th  width="4.5%" >期末成绩</th>
+            <th  width="4.5%" >总评成绩</th>
+            <th  width="4.5%" >最终</th>
+            <th  width="4.5%" >绩点</th>
+            <th  width="5%" >考试情况</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="grid21344342991_data"><tr>		<td>2018-2019 1</td>
+            <td>3050311001</td>
+            <td>6F1CF9BC8A6BAB5DE053AC14CECAFE5C</td>
+            <td>大学英语（一）
+            </td>
+            <td>公共基础课程（外语类）</td><td></td>		<td>3</td>
+            <td style="">	  			98
+            </td><td style=""></td><td style="">	  			62
+            </td><td style="">	  			80
+            </td><td style="">			80
+            </td><td>			3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3080211001</td>
+            <td>6D6E5CB867932779E053AC14CECAB263</td>
+            <td>思想道德修养与法律基础
+            </td>
+            <td>公共基础课程（思想类）</td><td></td>		<td>2.5</td>
+            <td style="">	  			82
+            </td><td style=""></td><td style="">	  			86.50
+            </td><td style="">	  			84
+            </td><td style="">			84
+            </td><td>			3.4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>2302064</td>
+            <td>6DE1971971D46B52E053AC14CECA7D93</td>
+            <td>体育(一)(素质)
+            </td>
+            <td>公共基础课程(军事体育类)</td><td></td>		<td>2</td>
+            <td style="">	  			75
+            </td><td style=""></td><td style="">	  			88
+            </td><td style="">	  			83
+            </td><td style="">			83
+            </td><td>			3.3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3060313001</td>
+            <td>6CEAAAB4E01682ADE053AC14CECA499F</td>
+            <td>计算机引论
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>2</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			89
+            </td><td style="">	  			91
+            </td><td style="">			91
+            </td><td>			4.1
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3060212001</td>
+            <td>6CEAAAB4DF6F82ADE053AC14CECA499F</td>
+            <td>数学分析(一)
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>4.5</td>
+            <td style="">	  			91
+            </td><td style=""></td><td style="">	  			51
+            </td><td style="">	  			63
+            </td><td style="">			63
+            </td><td>			1.3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3060212004</td>
+            <td>6CEAAAB4DF8782ADE053AC14CECA499F</td>
+            <td>高等代数(一)
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>3.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			80
+            </td><td style="">	  			86
+            </td><td style="">			86
+            </td><td>			3.6
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3080111001</td>
+            <td>6D61EC2E7ED336ACE053AB14CECA2EA7</td>
+            <td>马克思主义基本原理
+            </td>
+            <td>公共基础课程（思想类）</td><td></td>		<td>2.5</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			82
+            </td><td style="">	  			85
+            </td><td style="">			85
+            </td><td>			3.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>2070011001</td>
+            <td>6D6433F718ABC355E053AC14CECA317F</td>
+            <td>职业生涯与发展规划
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>1</td>
+            <td style="">	  			94
+            </td><td style=""></td><td style="">	  			90
+            </td><td style="">	  			92
+            </td><td style="">			92
+            </td><td>			4.2
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>2120011001</td>
+            <td>6CB2CA502220459AE053AC14CECA7AAD</td>
+            <td>军事训练
+            </td>
+            <td>公共基础课程(军事体育类)</td><td></td>		<td>2</td>
+            <td style=""></td><td style=""></td><td style="">	  			81
+            </td><td style="">	  			81
+            </td><td style="">			81
+            </td><td>			3.1
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3060212006</td>
+            <td>6CEAAAB4DF9982ADE053AC14CECA499F</td>
+            <td>解析几何
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>3</td>
+            <td style="">	  			95
+            </td><td style=""></td><td style="">	  			73
+            </td><td style="">	  			80
+            </td><td style="">			80
+            </td><td>			3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 1</td>
+            <td>3060212007</td>
+            <td>6CEAAAB4E02482ADE053AC14CECA499F</td>
+            <td>大类研讨课
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>0.5</td>
+            <td style=""></td><td style=""></td><td style="">	  			合格
+            </td><td style="">	  			80
+            </td><td style="">			80
+            </td><td>			3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3060212005</td>
+            <td>7953D9E3C21A3F4AE053AB14CECA1B66</td>
+            <td>高等代数(二)
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>4</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			71
+            </td><td style="">	  			77
+            </td><td style="">			77
+            </td><td>			2.7
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3060212002</td>
+            <td>7953F3BDAA44EDE5E053AC14CECA68D9</td>
+            <td>数学分析(二)
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>5.5</td>
+            <td style="">	  			97
+            </td><td style=""></td><td style="">	  			83
+            </td><td style="">	  			87
+            </td><td style="">			87
+            </td><td>			3.7
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>2302078</td>
+            <td>7B14F4ABFB10BB12E053AC14CECAD440</td>
+            <td>体育(二)(素质)
+            </td>
+            <td>公共基础课程(军事体育类)</td><td></td>		<td>2.5</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			88.33
+            </td><td style="">	  			89
+            </td><td style="">			89
+            </td><td>			3.9
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3050311002</td>
+            <td>7B7F7C1470E56779E053AB14CECA6C30</td>
+            <td>大学英语（二）
+            </td>
+            <td>公共基础课程（外语类）</td><td></td>		<td>3</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			60
+            </td><td style="">	  			80
+            </td><td style="">			80
+            </td><td>			3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3060313002</td>
+            <td>7945FEEFB6030DA8E053AB14CECA1B3F</td>
+            <td>C++ 语言程序设计
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>4.5</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			91
+            </td><td style="">	  			93
+            </td><td style="">			93
+            </td><td>			4.3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3080211003</td>
+            <td>795381EA24E331D3E053AB14CECAF64F</td>
+            <td>思想政治理论课实践环节
+            </td>
+            <td>公共基础课程（思想类）</td><td></td>		<td>2</td>
+            <td style=""></td><td style=""></td><td style="">	  			良好
+            </td><td style="">	  			良好
+            </td><td style="">			良好
+            </td><td>			3.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3080111003</td>
+            <td>7959FFF9021024ACE053AC14CECA9CFA</td>
+            <td>中国近现代史纲要
+            </td>
+            <td>公共基础课程（思想类）</td><td></td>		<td>2</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			93
+            </td><td style="">	  			94
+            </td><td style="">			94
+            </td><td>			4.4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3080011001</td>
+            <td>795CEAA741F08F9EE053AC14CECACF8B</td>
+            <td>心理健康教育
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>1</td>
+            <td style="">	  			95
+            </td><td style=""></td><td style="">	  			82
+            </td><td style="">	  			90
+            </td><td style="">			90
+            </td><td>			4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3070111002</td>
+            <td>7973D3AAF10FDA1BE053AB14CECA7904</td>
+            <td>大学物理-电磁学
+            </td>
+            <td>公共基础课程（物理类）</td><td></td>		<td>2</td>
+            <td style="">	  			99.61
+            </td><td style=""></td><td style="">	  			93
+            </td><td style="">	  			95
+            </td><td style="">			95
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2018-2019 2</td>
+            <td>3070111001</td>
+            <td>795A2BD2650EC2E8E053AB14CECA2069</td>
+            <td>大学物理-力学
+            </td>
+            <td>公共基础课程（物理类）</td><td></td>		<td>2</td>
+            <td style="">	  			99.73
+            </td><td style=""></td><td style="">	  			83
+            </td><td style="">	  			88
+            </td><td style="">			88
+            </td><td>			3.8
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>3060212003</td>
+            <td>873CFE2A7FF00D06E053AB14CECA3F42</td>
+            <td>数学分析（三）
+            </td>
+            <td>大类平台课程（大类基础课程）</td><td></td>		<td>5</td>
+            <td style="">	  			97
+            </td><td style=""></td><td style="">	  			76
+            </td><td style="">	  			82
+            </td><td style="">			82
+            </td><td>			3.2
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>3060313025</td>
+            <td>873D4C557E3048E7E053AC14CECAF0A4</td>
+            <td>常微分方程
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>3.5</td>
+            <td style="">	  			99
+            </td><td style=""></td><td style="">	  			89
+            </td><td style="">	  			93
+            </td><td style="">			93
+            </td><td>			4.3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>3090111001</td>
+            <td>89204BFEDED9DD4FE053AC14CECA8489</td>
+            <td>军事理论
+            </td>
+            <td>公共基础课程(军事体育类)</td><td></td>		<td>2</td>
+            <td style="">	  			92
+            </td><td style=""></td><td style="">	  			85
+            </td><td style="">	  			88
+            </td><td style="">			88
+            </td><td>			3.8
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>3050311017</td>
+            <td>8D3A83A354099DA6E053AB14CECA84A8</td>
+            <td>学术论文阅读与写作（理工类）
+            </td>
+            <td>公共基础课程（外语类）</td><td></td>		<td>2</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			86
+            </td><td style="">	  			91
+            </td><td style="">			91
+            </td><td>			4.1
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>0000111082</td>
+            <td>8B8F6DAB5522D4E9E053AC14CECA1DE8</td>
+            <td>德语（二）
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>2</td>
+            <td style="">	  			95
+            </td><td style=""></td><td style="">	  			82
+            </td><td style="">	  			良好
+            </td><td style="">			良好
+            </td><td>			3.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>2302043</td>
+            <td>8B2C811F5FD6A8ACE053AB14CECA3920</td>
+            <td>体育(三)(羽毛球)
+            </td>
+            <td>公共基础课程(军事体育类)</td><td></td>		<td>2</td>
+            <td style="">	  			87.50
+            </td><td style=""></td><td style="">	  			88.33
+            </td><td style="">	  			88
+            </td><td style="">			88
+            </td><td>			3.8
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>3060313003</td>
+            <td>873D2F6A47EF2832E053AC14CECA623F</td>
+            <td>数据结构与算法
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>4.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			76
+            </td><td style="">	  			85
+            </td><td style="">			85
+            </td><td>			3.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>3060313035</td>
+            <td>873D4C557E2448E7E053AC14CECAF0A4</td>
+            <td>认识实习
+            </td>
+            <td>专业教育课程（集中实践环节）</td><td></td>		<td>2</td>
+            <td style=""></td><td style=""></td><td style="">	  			优秀
+            </td><td style="">	  			优秀
+            </td><td style="">			优秀
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 1</td>
+            <td>0000111055</td>
+            <td>8B54130DEB8FFC5CE053AB14CECA70A5</td>
+            <td>LaTex基本使用方法
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>0.5</td>
+            <td style=""></td><td style=""></td><td style="">	  			优秀
+            </td><td style="">	  			优秀
+            </td><td style="">			优秀
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060313039</td>
+            <td>94D6141814560B44E053AB14CECA9E2C</td>
+            <td>复变函数
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>3</td>
+            <td style="">	  			94
+            </td><td style=""></td><td style="">	  			88
+            </td><td style="">	  			90
+            </td><td style="">			90
+            </td><td>			4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060014001</td>
+            <td>9826A60CF7138CE3E053AC14CECA6B82</td>
+            <td>创业基础
+            </td>
+            <td>个性培养课程（创新创业课程）</td><td></td>		<td>2</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			90
+            </td><td style="">	  			优秀
+            </td><td style="">			优秀
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060313005</td>
+            <td>94D40BF4542E25A1E053AC14CECA420B</td>
+            <td>概率论与数理统计（含随机过程）
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>5.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			95
+            </td><td style="">	  			97
+            </td><td style="">			97
+            </td><td>			4.7
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3080111002</td>
+            <td>950A8F699CE78570E053AB14CECADA3F</td>
+            <td>毛泽东思想和中国特色社会主义理论体系概论
+            </td>
+            <td>公共基础课程（思想类）</td><td></td>		<td>5</td>
+            <td style="">	  			99
+            </td><td style=""></td><td style="">	  			85
+            </td><td style="">	  			95
+            </td><td style="">			95
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060313029</td>
+            <td>94C47889C036A3CEE053AC14CECAFF21</td>
+            <td>数学建模
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>3.5</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			89.20
+            </td><td style="">	  			90
+            </td><td style="">			90
+            </td><td>			4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060313027</td>
+            <td>94C44C2F6CFBA3D0E053AC14CECA3332</td>
+            <td>运筹与优化
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>3</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			93
+            </td><td style="">	  			94
+            </td><td style="">			94
+            </td><td>			4.4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3080211002</td>
+            <td>952E04018FC4ECF8E053AC14CECAF492</td>
+            <td>形势与政策
+            </td>
+            <td>公共基础课程（思想类）</td><td></td>		<td>2</td>
+            <td style="">	  			合格
+            </td><td style=""></td><td style="">	  			合格
+            </td><td style="">	  			合格
+            </td><td style="">			合格
+            </td><td>			3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060213007</td>
+            <td>94D53F24C21A5260E053AC14CECA6549</td>
+            <td>实变函数
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>3</td>
+            <td style="">	  			91
+            </td><td style="">	  			99
+            </td><td style="">	  			80
+            </td><td style="">	  			89
+            </td><td style="">			89
+            </td><td>			3.9
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>2302057</td>
+            <td>94D5A95F08E9096BE053AB14CECA55C8</td>
+            <td>体育(四)(羽毛球)
+            </td>
+            <td>公共基础课程(军事体育类)</td><td></td>		<td>2.5</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			90
+            </td><td style="">	  			90
+            </td><td style="">			90
+            </td><td>			4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>3060313036</td>
+            <td>94D40BF4542925A1E053AC14CECA420B</td>
+            <td>数学建模课程设计
+            </td>
+            <td>专业教育课程（集中实践环节）</td><td></td>		<td>2</td>
+            <td style=""></td><td style=""></td><td style="">	  			优秀
+            </td><td style="">	  			优秀
+            </td><td style="">			优秀
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2019-2020 2</td>
+            <td>0000111008</td>
+            <td>98B038448185E258E053AC14CECAA776</td>
+            <td>国学基础
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>2</td>
+            <td style="">	  			90
+            </td><td style=""></td><td style="">	  			96
+            </td><td style="">	  			93
+            </td><td style="">			93
+            </td><td>			4.3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313006</td>
+            <td>A3B52E25CD7D6107E053AC14CECA63FF</td>
+            <td>数值分析
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>3.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			89
+            </td><td style="">	  			93
+            </td><td style="">			93
+            </td><td>			4.3
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>0000111084</td>
+            <td>A8167E9205300D92E053AB14CECA562C</td>
+            <td>日语（二）
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>2</td>
+            <td style="">	  			95
+            </td><td style=""></td><td style="">	  			96
+            </td><td style="">	  			96
+            </td><td style="">			96
+            </td><td>			4.6
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313012</td>
+            <td>A3B012CE45E6BA82E053AB14CECA54D3</td>
+            <td>Java语言程序设计
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>2.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			92
+            </td><td style="">	  			94
+            </td><td style="">			94
+            </td><td>			4.4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313022</td>
+            <td>A3AF96C62BAC31F5E053AC14CECA62B5</td>
+            <td>机器学习
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>2.5</td>
+            <td style="">	  			95
+            </td><td style=""></td><td style="">	  			93.96
+            </td><td style="">	  			94
+            </td><td style="">			94
+            </td><td>			4.4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313044</td>
+            <td>A3B13B95C957DBACE053AB14CECAD809</td>
+            <td>数据库技术与应用
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>3</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			89
+            </td><td style="">	  			92
+            </td><td style="">			92
+            </td><td>			4.2
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313004</td>
+            <td>A3B52E25CD656107E053AC14CECA63FF</td>
+            <td>离散数学
+            </td>
+            <td>专业教育课程（专业平台课程）</td><td></td>		<td>3</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			100
+            </td><td style="">	  			100
+            </td><td style="">			100
+            </td><td>			5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313009</td>
+            <td>A3B012CE45F1BA82E053AB14CECA54D3</td>
+            <td>操作系统原理
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>2.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			100
+            </td><td style="">	  			100
+            </td><td style="">			100
+            </td><td>			5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>0000111069</td>
+            <td>A7B67BF6421B654CE053AC14CECAEE09</td>
+            <td>音乐鉴赏
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>2</td>
+            <td style=""></td><td style=""></td><td style="">	  			97
+            </td><td style="">	  			97
+            </td><td style="">			97
+            </td><td>			4.7
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313011</td>
+            <td>A3B13B95C953DBACE053AB14CECAD809</td>
+            <td>计算机网络与安全
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>3.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			91
+            </td><td style="">	  			94
+            </td><td style="">			94
+            </td><td>			4.4
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 1</td>
+            <td>3060313040</td>
+            <td>A3B52E25CD766107E053AC14CECA63FF</td>
+            <td>数学物理方程
+            </td>
+            <td>专业教育课程（专业选修课程）</td><td></td>		<td>3</td>
+            <td style="">	  			97
+            </td><td style=""></td><td style="">	  			95
+            </td><td style="">	  			96
+            </td><td style="">			96
+            </td><td>			4.6
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 2</td>
+            <td>2070011002</td>
+            <td>B2C7EDFB1E3263C8E053AB14CECA3C1E</td>
+            <td>就业指导
+            </td>
+            <td>公共基础课程(文化素质类)</td><td></td>		<td>1</td>
+            <td style="">	  			92
+            </td><td style=""></td><td style="">	  			89
+            </td><td style="">	  			91
+            </td><td style="">			91
+            </td><td>			4.1
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 2</td>
+            <td>3060313020</td>
+            <td>B26357737D5743C3E053AB14CECA9BC3</td>
+            <td>数字图像处理
+            </td>
+            <td>专业教育课程（专业方向课程）</td><td></td>		<td>2</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			90
+            </td><td style="">	  			优秀
+            </td><td style="">			优秀
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 2</td>
+            <td>3060313024</td>
+            <td>B2641819ED876409E053AB14CECAB9E6</td>
+            <td>数据挖掘
+            </td>
+            <td>专业教育课程（专业方向课程）</td><td></td>		<td>2.5</td>
+            <td style="">	  			98
+            </td><td style=""></td><td style="">	  			86
+            </td><td style="">	  			91
+            </td><td style="">			91
+            </td><td>			4.1
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 2</td>
+            <td>3060313034</td>
+            <td>B2641819ED7C6409E053AB14CECAB9E6</td>
+            <td>矩阵分析
+            </td>
+            <td>专业教育课程（专业方向课程）</td><td></td>		<td>2.5</td>
+            <td style="">	  			100
+            </td><td style=""></td><td style="">	  			92
+            </td><td style="">	  			95
+            </td><td style="">			95
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 2</td>
+            <td>3060313008</td>
+            <td>B26357737D6043C3E053AB14CECA9BC3</td>
+            <td>软件工程
+            </td>
+            <td>专业教育课程（专业方向课程）</td><td></td>		<td>2</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			95
+            </td><td style="">	  			95
+            </td><td style="">			95
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2020-2021 2</td>
+            <td>3060313013</td>
+            <td>B26357737D5043C3E053AB14CECA9BC3</td>
+            <td>Linux操作系统
+            </td>
+            <td>专业教育课程（专业方向课程）</td><td></td>		<td>2.5</td>
+            <td style="">	  			96
+            </td><td style=""></td><td style="">	  			96
+            </td><td style="">	  			97
+            </td><td style="">			97
+            </td><td>			4.7
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2021-2022 1</td>
+            <td>3060313037</td>
+            <td>C09BB1D2A8D5D62AE053AB14CECA9519</td>
+            <td>专题讲座
+            </td>
+            <td>专业教育课程（专业拓展课程）</td><td></td>		<td>1</td>
+            <td style=""></td><td style=""></td><td style="">	  			良好
+            </td><td style="">	  			良好
+            </td><td style="">			良好
+            </td><td>			3.5
+            </td><td>					正常
+            </td>
+        </tr><tr>		<td>2021-2022 1</td>
+            <td>3060313016</td>
+            <td>C09B92104B83CEE9E053AB14CECAFDC1</td>
+            <td>学术论文写作
+            </td>
+            <td>专业教育课程（专业拓展课程）</td><td></td>		<td>0.5</td>
+            <td style=""></td><td style=""></td><td style="">	  			优秀
+            </td><td style="">	  			95
+            </td><td style="">			95
+            </td><td>			4.5
+            </td><td>					正常
+            </td>
+        </tr></tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var clearCheckbox_grid21344342991 = function() {
+        jQuery("#grid21344342991").find(".box:checkbox").removeProp("checked");
+        jQuery("#grid21344342991").find(".gridselect-top :checkbox").removeProp("checked");
+        return true;
+    }
+
+    page_grid21344342991 = bg.page("/eams/teach/grade/course/person!historyCourseGrade.action","");
+    {
+        var _paramstring = 'projectType=MAJOR';
+        var _params = _paramstring.split('&');
+        for (var i = 0; i < _params.length; i++) {
+            _params[i] = decodeURIComponent(_params[i]);
+        }
+        _paramstring = _params.join('&');
+        page_grid21344342991.target("",'grid21344342991').action("/eams/teach/grade/course/person!historyCourseGrade.action").addParams(_paramstring).orderBy("null");
+    }
+    bg.ui.grid.init('grid21344342991',page_grid21344342991);
+</script>
+
+<script type="text/javascript">
+</script>
+</body>
+</html>
