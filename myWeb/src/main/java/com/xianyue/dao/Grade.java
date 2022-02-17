@@ -1,8 +1,5 @@
 package com.xianyue.dao;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @auther xianyue
  * @date 2022/2/14 - 星期一 - 13:47
@@ -16,16 +13,16 @@ public class Grade {
     private Float finalGrades;
     private Float overallGrades;
 
-    private static final Map<String, String> map = new HashMap<>();
-    static {
-        map.put("classCode", "课程代码");
-        map.put("className", "课程名称");
-        map.put("credit", "学分");
-        map.put("semester", "学年学期");
-        map.put("usualGrades", "平时成绩");
-        map.put("finalGrades", "期末成绩");
-        map.put("overallGrades", "总成绩");
-    }
+    // private static final Map<String, String> map = new HashMap<>();
+    // static {
+    //     map.put("课程代码", "classCode");
+    //     map.put("课程名称", "className");
+    //     map.put("学分", "credit");
+    //     map.put("学年学期", "semester");
+    //     map.put("平时成绩", "usualGrades");
+    //     map.put("期末成绩", "finalGrades");
+    //     map.put("总成绩", "overallGrades");
+    // }
 
     public Grade() {}
 

@@ -1,6 +1,5 @@
 package com.xianyue.dao.base;
 
-import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
@@ -8,14 +7,27 @@ import java.lang.reflect.Type;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
+
+import static com.xianyue.ConfigRead.MySqlConfig;
 
 /**
  * @auther xianyue
  * @date 2022/2/13 - 星期日 - 20:04
  **/
 public abstract class BaseDao<T> {
-    public String driver, url, user, pwd;
+    public static String driver, url, user, pwd;
+
+    static {
+        loadConfig();
+    }
+
+    private static void loadConfig() {
+        driver = MySqlConfig.get("driverClass");
+        url = MySqlConfig.get("url");
+        user = MySqlConfig.get("user");
+        pwd = MySqlConfig.get("pwd");
+    }
+
     private Connection connection;
 
     // 其存在的意义是能够在不知其类型的情况下利用反射创建对象，泛型 T 只能用来声明，不能创建对象
@@ -48,52 +60,13 @@ public abstract class BaseDao<T> {
      * 则根据默认配置创建新连接并对 connection 进行赋值并返回。
      * @return connection
      */
-    protected  Connection getConnection() {
+    protected Connection getConnection() {
         if (connection != null) {
             return connection;
         }
-        String configPath = "jdbc.properties";
-        return getConnection(configPath);
-    }
-
-    /**
-     * @Description 根据配置重新创建连接，赋值给 connection 并返回
-     * @param configPath 配置的路径，根据当前类的 ClassLoader 获取
-     * @return connection
-     */
-    protected Connection getConnection(String configPath) {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                System.out.println(e.getClass() + " : " + e.getMessage());
-                return connection;
-            }
-        }
-
-        // FIXME: 2022/2/14
-        // 使用 classLoader 进行资源加载时，path 与常规文件路径不太一样
-        InputStream inputStream = BaseDao
-                .class
-                .getClassLoader()
-                .getResourceAsStream(configPath);
-
-        Properties properties = new Properties();
-        try {
-            properties.load(inputStream);
-        } catch (Exception e) {
-            System.out.println(e.getClass() + " : " + e.getMessage());
-            System.out.println("加载配置文件失败！");
-            return null;
-        }
-
-        driver = properties.getProperty("driverClass");
-        url = properties.getProperty("url");
-        user = properties.getProperty("user");
-        pwd = properties.getProperty("password");
 
         try {
-            System.out.println(driver);
+            // 加载驱动
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user, pwd);
         } catch (SQLException | ClassNotFoundException e) {

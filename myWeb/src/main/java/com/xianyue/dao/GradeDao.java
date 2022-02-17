@@ -8,8 +8,10 @@ import java.util.List;
  **/
 public interface GradeDao {
     List<Grade> getGradeList();
+    List<Grade> getGradeList(int page);
     Grade getGradeByClassCode(String ClassCode);
     List<Grade> getGradeByClassName(String ClassName);
+    List<Grade> getGradeByClassName(String ClassName, int page);
     int add(Grade grade);
     int update(Grade grade);
     int delete(String classCode);

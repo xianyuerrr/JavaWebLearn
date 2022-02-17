@@ -1,10 +1,10 @@
 package com.xianyue.service;
 
+import com.xianyue.ConfigRead;
 import com.xianyue.dao.Grade;
 import com.xianyue.dao.GradeDao;
 import com.xianyue.dao.GradeDaoImpl;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +21,30 @@ public class IndexServlet extends ViewBaseServlet {
     private static GradeDao dao = new GradeDaoImpl();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Grade> list = dao.getGradeList();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("utf8");
+        String pageStr = req.getParameter("page");
+        String keywords = req.getParameter("keyword") != null ? req.getParameter("keyword") : "";
+
+        int page;
+        int pageCount;
+
+        try {
+            page = Integer.parseInt(pageStr);
+        } catch (Exception e) {
+            page = 1;
+        }
+
+        pageCount = dao.getGradeList().size() / ConfigRead.PageCnt + 1;
+
+        req.setAttribute("page", page);
+
+
+        List<Grade> list = dao.getGradeByClassName(keywords, page);
+
         HttpSession session = req.getSession();
         session.setAttribute("GradeList", list);
+        session.setAttribute("pageCount", pageCount);
         // 客户端重定向
         // resp.sendRedirect("index.html");
         // 服务器端转发

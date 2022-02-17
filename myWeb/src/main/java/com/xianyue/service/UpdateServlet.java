@@ -4,7 +4,6 @@ import com.xianyue.dao.Grade;
 import com.xianyue.dao.GradeDao;
 import com.xianyue.dao.GradeDaoImpl;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ import java.io.IOException;
 public class UpdateServlet extends ViewBaseServlet{
     private static GradeDao dao = new GradeDaoImpl();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String classCode = req.getParameter("classCode");
         Grade grade = null;
         if (classCode != null && classCode != "") {
@@ -29,7 +28,7 @@ public class UpdateServlet extends ViewBaseServlet{
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // 设置编码
         req.setCharacterEncoding("utf-8");
 

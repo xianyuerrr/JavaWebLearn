@@ -1,5 +1,6 @@
 package com.xianyue.dao;
 
+import com.xianyue.ConfigRead;
 import com.xianyue.dao.base.BaseDao;
 
 import java.util.List;
@@ -9,6 +10,15 @@ import java.util.List;
  * @date 2022/2/14 - 星期一 - 13:24
  **/
 public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
+    public int pageCnt = ConfigRead.PageCnt;
+    String baseQuery = "SELECT 课程代码 AS classCode, " +
+            "课程名称 AS className, " +
+            "学分 AS credit, " +
+            "学年学期 AS semester, " +
+            "总成绩 overallGrades, " +
+            "平时成绩 AS usualGrades, " +
+            "期末成绩 AS finalGrades " +
+            "FROM grade ";
 
     /**
      * @Description 获取所有记录
@@ -16,15 +26,13 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
      */
     @Override
     public List<Grade> getGradeList() {
-        String sql = "SELECT 课程代码 AS classCode, " +
-                "课程名称 AS className, " +
-                "学分 AS credit, " +
-                "学年学期 AS semester, " +
-                "总成绩 overallGrades, " +
-                "平时成绩 AS usualGrades, " +
-                "期末成绩 AS finalGrades " +
-                "FROM grade;";
+        String sql = baseQuery;
         return executeQuery(sql);
+    }
+
+    @Override
+    public List<Grade> getGradeList(int page) {
+        return getGradeByClassName("", page);
     }
 
     /**
@@ -34,14 +42,7 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
      */
     @Override
     public Grade getGradeByClassCode(String ClassCode) {
-        String sql = "SELECT 课程代码 AS classCode, " +
-                "课程名称 AS className, " +
-                "学分 AS credit, " +
-                "学年学期 AS semester, " +
-                "总成绩 overallGrades, " +
-                "平时成绩 AS usualGrades, " +
-                "期末成绩 AS finalGrades " +
-                "FROM grade " +
+        String sql = baseQuery +
                 "WHERE 课程代码 = ?;";
         List<Grade> list = executeQuery(sql, ClassCode);
         return list.isEmpty() ? null :list.get(0);
@@ -49,21 +50,22 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
 
     /**
      * @Description 根据 课程名称 获取所有元素，为模糊查询，使用 like 匹配
-     * @param ClassName 课程名称
+     * @param className 课程名称
      * @return
      */
     @Override
-    public List<Grade> getGradeByClassName(String ClassName) {
-        String sql = "SELECT 课程代码 AS classCode, " +
-                "课程名称 AS className, " +
-                "学分 AS credit, " +
-                "学年学期 AS semester, " +
-                "总成绩 overallGrades, " +
-                "平时成绩 AS usualGrades, " +
-                "期末成绩 AS finalGrades " +
-                "FROM grade " +
+    public List<Grade> getGradeByClassName(String className) {
+        String sql = baseQuery +
                 "WHERE 课程名称 LIKE CONCAT('%', ?, '%');";
-        return executeQuery(sql, ClassName);
+        return executeQuery(sql, className);
+    }
+
+    @Override
+    public List<Grade> getGradeByClassName(String className, int page) {
+        String sql = baseQuery +
+                "WHERE 课程名称 LIKE CONCAT('%', ?, '%') " +
+                "LIMIT ?, ?;";
+        return executeQuery(sql, className, pageCnt * (page-1), pageCnt);
     }
 
     /**

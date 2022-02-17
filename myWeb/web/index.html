@@ -4,17 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
     <title>Title</title>
 </head>
 <body>
     <div class="container">
         <div class="list">
             <p class="center f30 title">欢迎使用成绩单后台管理系统</p>
+            <!--<div class="query">-->
+            <!--    -->
+            <!--</div>-->
+
+            <a class="r" th:href="@{/update}">添加新成绩记录</a>
             <div class="r">
-                <a th:href="@{/update}">添加新成绩记录</a>
+                <form th:action="@{/index}" method="get">
+                    <input name="keyword" style="width: 30%; margin: 10px 20px 10px 10px;"/>
+                    <button type="submit">搜索</button>
+                </form>
             </div>
+
+
             <table class="tbl">
-                <tr>
+                <tr class="tbl-header">
                     <!--Table Header Cells: <th>-->
                     <th class="w20">课程代码</th>
                     <th class="w20">课程名称</th>
@@ -25,10 +36,10 @@
                     <th class="w20">总成绩</th>
                     <th>操作</th>
                 </tr>
-                <tr th:if="${#lists.isEmpty(session.GradeList)}">
-                    <td colspan="4">对不起，库存为空！</td>
+                <tr class="tbl-row" th:if="${#lists.isEmpty(session.GradeList)}">
+                    <td colspan="8">对不起，库存为空！</td>
                 </tr>
-                <tr th:unless="${#lists.isEmpty(session.GradeList)}" th:each="grade : ${session.GradeList}">
+                <tr class="tbl-row" th:unless="${#lists.isEmpty(session.GradeList)}" th:each="grade : ${session.GradeList}">
                     <!--Table Data Cell: <td>-->
                     <!--<td><a th:href="@{'/update?classCode='+${grade.getClassCode()}}" th:text="${grade.getClassCode()}">classCode</a>></td>-->
                     <td><a th:href="@{/update(classCode=${grade.getClassCode()})}" th:text="${grade.getClassCode()}">classCode</a></td>
@@ -38,9 +49,17 @@
                     <td th:text="${grade.getUsualGrades()}">usualGrades</td>
                     <td th:text="${grade.getFinalGrades()}">finalGrades</td>
                     <td th:text="${grade.getOverallGrades()}">OverallGrades</td>
-                    <td><a th:href="@{/delete(classCode=${grade.getClassCode()})}">删除</a></td>
+                    <td>
+                        <button th:onclick="del()">删除</button>
+                    </td>
                 </tr>
             </table>
+            <div class="select-btn">
+                <button th:onclick="|goPage(${1})|" th:disabled="${page == 1}">首页</button>
+                <button th:onclick="|goPage(${page-1})|" th:disabled="${page == 1}">上一页</button>
+                <button th:onclick="|goPage(${page+1})|" th:disabled="${page == session.pageCount}">下一页</button>
+                <button th:onclick="|goPage(${session.pageCount})|" th:disabled="${page == session.pageCount}">尾页</button>
+            </div>
         </div>
     </div>
 </body>
