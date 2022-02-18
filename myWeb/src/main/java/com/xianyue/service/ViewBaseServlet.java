@@ -33,6 +33,12 @@ public class ViewBaseServlet extends HttpServlet {
         // ①HTML是默认模式，明确设置是为了代码更容易理解
         templateResolver.setTemplateMode(TemplateMode.HTML);
 
+        //此处的视图名称是 index
+        //那么thymeleaf会将这个 逻辑视图名称 对应到 物理视图 名称上去
+        //逻辑视图名称 ：   index
+        //物理视图名称 ：   view-prefix + 逻辑视图名称 + view-suffix
+        //所以真实的视图名称是：      /       index       .html
+
         // ②设置前缀
         String viewPrefix = servletContext.getInitParameter("view-prefix");
         templateResolver.setPrefix(viewPrefix);

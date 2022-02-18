@@ -15,9 +15,9 @@
             <!--    -->
             <!--</div>-->
 
-            <a class="r" th:href="@{/update}">添加新成绩记录</a>
+            <a class="r" th:href="@{/grade(operation=add)}">添加新成绩记录</a>
             <div class="r">
-                <form th:action="@{/index}" method="get">
+                <form th:action="@{/grade}" method="get">
                     <input name="keyword" style="width: 30%; margin: 10px 20px 10px 10px;"/>
                     <button type="submit">搜索</button>
                 </form>
@@ -42,7 +42,7 @@
                 <tr class="tbl-row" th:unless="${#lists.isEmpty(session.GradeList)}" th:each="grade : ${session.GradeList}">
                     <!--Table Data Cell: <td>-->
                     <!--<td><a th:href="@{'/update?classCode='+${grade.getClassCode()}}" th:text="${grade.getClassCode()}">classCode</a>></td>-->
-                    <td><a th:href="@{/update(classCode=${grade.getClassCode()})}" th:text="${grade.getClassCode()}">classCode</a></td>
+                    <td><a th:href="@{/grade(operation=add, classCode=${grade.getClassCode()})}" th:text="${grade.getClassCode()}">classCode</a></td>
                     <td th:text="${grade.getClassName()}">className</td>
                     <td th:text="${grade.getCredit()}">Credit</td>
                     <td th:text="${grade.getSemester()}">Semester</td>
@@ -50,7 +50,9 @@
                     <td th:text="${grade.getFinalGrades()}">finalGrades</td>
                     <td th:text="${grade.getOverallGrades()}">OverallGrades</td>
                     <td>
-                        <button th:onclick="del()">删除</button>
+                        <!--<button th:onclick="|del(${grade.getClassCode()})|">首页</button>-->
+                        <!--尝试了，在 button 标签中无法在调用 js 的函数的同时正确解析 th 参数-->
+                        <a th:href="@{/grade(operation=delete, classCode=${grade.getClassCode()})}">删除</a>
                     </td>
                 </tr>
             </table>
