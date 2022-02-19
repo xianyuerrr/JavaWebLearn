@@ -11,6 +11,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +22,7 @@ public class ViewBaseServlet extends HttpServlet {
     private TemplateEngine templateEngine;
 
     @Override
-    public void init() {
+    public void init() throws ServletException {
 
         // 1.获取ServletContext对象
         ServletContext servletContext = this.getServletContext();
