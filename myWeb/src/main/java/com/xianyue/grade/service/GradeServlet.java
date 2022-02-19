@@ -1,9 +1,10 @@
-package com.xianyue.service;
+package com.xianyue.grade.service;
 
-import com.xianyue.ConfigRead;
-import com.xianyue.dao.Grade;
-import com.xianyue.dao.GradeDao;
-import com.xianyue.dao.GradeDaoImpl;
+import com.xianyue.mySSM.ConfigRead;
+import com.xianyue.grade.dao.Grade;
+import com.xianyue.grade.dao.GradeDao;
+import com.xianyue.grade.dao.GradeDaoImpl;
+import com.xianyue.mySSM.service.ViewBaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,6 +45,7 @@ public class GradeServlet extends ViewBaseServlet {
             Method method = GradeServlet
                     .class
                     .getDeclaredMethod(operation, HttpServletRequest.class, HttpServletResponse.class);
+            method.setAccessible(true);
             method.invoke(this, req, resp);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

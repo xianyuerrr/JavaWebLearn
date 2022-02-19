@@ -1,4 +1,4 @@
-package com.xianyue.dao;
+package com.xianyue.grade.dao;
 
 import java.util.List;
 

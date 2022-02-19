@@ -1,4 +1,4 @@
-package com.xianyue;
+package com.xianyue.mySSM;
 
 import java.io.InputStream;
 import java.util.HashMap;

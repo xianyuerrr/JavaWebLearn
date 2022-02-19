@@ -1,8 +1,8 @@
-package com.xianyue.util;
+package com.xianyue.grade.util;
 
-import com.xianyue.dao.Grade;
-import com.xianyue.dao.GradeDao;
-import com.xianyue.dao.GradeDaoImpl;
+import com.xianyue.grade.dao.Grade;
+import com.xianyue.grade.dao.GradeDao;
+import com.xianyue.grade.dao.GradeDaoImpl;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

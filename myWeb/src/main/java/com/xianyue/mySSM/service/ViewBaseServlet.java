@@ -1,4 +1,4 @@
-package com.xianyue.service;
+package com.xianyue.mySSM.service;
 
 /**
  * @auther xianyue

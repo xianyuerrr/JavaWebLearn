@@ -1,7 +1,7 @@
-package com.xianyue.dao;
+package com.xianyue.grade.dao;
 
-import com.xianyue.ConfigRead;
-import com.xianyue.dao.base.BaseDao;
+import com.xianyue.mySSM.ConfigRead;
+import com.xianyue.mySSM.dao.BaseDao;
 
 import java.util.List;
 

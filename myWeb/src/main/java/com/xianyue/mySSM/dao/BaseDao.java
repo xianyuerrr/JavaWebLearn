@@ -1,4 +1,4 @@
-package com.xianyue.dao.base;
+package com.xianyue.mySSM.dao;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.xianyue.ConfigRead.MySqlConfig;
+import static com.xianyue.mySSM.ConfigRead.MySqlConfig;
 
 /**
  * @auther xianyue
