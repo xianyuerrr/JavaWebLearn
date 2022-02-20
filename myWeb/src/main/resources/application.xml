@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans>
-    <bean name="grade" class="com.xianyue.grade.service.GradeController"/>
+    <bean name="grade" class="com.xianyue.grade.controller.GradeController"/>
 </beans>

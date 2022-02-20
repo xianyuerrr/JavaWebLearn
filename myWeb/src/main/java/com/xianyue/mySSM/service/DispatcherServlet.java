@@ -97,9 +97,9 @@ public class DispatcherServlet extends ViewBaseServlet{
         // 对于拦截到的诸如 index.css, index.js 之类的请求，对此类请求不进行特殊处理
         // 获取其请求的文件，将其写入 response 返回
         if (controllerObj == null) {
-            PrintWriter writer = resp.getWriter();
             String path = this.getServletContext().getRealPath("/") + beanName;
             InputStream inputStream = new FileInputStream(path);
+            PrintWriter writer = resp.getWriter();
             writer.write(new String(inputStream.readAllBytes()));
             writer.close();
             return;
@@ -113,6 +113,7 @@ public class DispatcherServlet extends ViewBaseServlet{
         }
 
         try {
+           // -parameters
             Method method = controllerObj
                     .getClass()
                     .getDeclaredMethod(operation, HttpServletRequest.class, HttpServletResponse.class);

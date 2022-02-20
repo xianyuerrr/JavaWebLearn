@@ -1,8 +1,8 @@
-package com.xianyue.grade.service;
+package com.xianyue.grade.controller;
 
 import com.xianyue.grade.dao.Grade;
-import com.xianyue.grade.dao.GradeDao;
-import com.xianyue.grade.dao.GradeDaoImpl;
+import com.xianyue.grade.service.GradeService;
+import com.xianyue.grade.service.GradeServiceImpl;
 import com.xianyue.mySSM.ConfigRead;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,14 +15,14 @@ import java.util.List;
  * @date 2022/2/17 - 星期四 - 20:14
  **/
 public class GradeController {
-    private static GradeDao dao = new GradeDaoImpl();
+    private static final GradeService service = new GradeServiceImpl();
 
     protected String delete(HttpServletRequest req, HttpServletResponse resp) {
         String classCode = req.getParameter("classCode");
-        if (classCode == null || classCode == "") {
+        if (classCode == null || "".equals(classCode)) {
             System.out.println("classCode 为空");
         }
-        dao.delete(classCode);
+        service.delete(classCode);
         return "redirect:grade";
     }
 
@@ -31,10 +31,9 @@ public class GradeController {
         String classCode = req.getParameter("classCode");
         Grade grade = null;
         if (classCode != null && classCode != "") {
-            grade = dao.getGradeByClassCode(classCode);
+            grade = service.getGradeByClassCode(classCode);
         }
         req.setAttribute("grade", grade);
-        // super.processTemplate("update", req, resp);
         return "processTemplate:update";
     }
 
@@ -52,7 +51,7 @@ public class GradeController {
             Grade grade = new Grade(classCode, className, credit, semester, usualGrades, finalGrades, overallGrades);
 
             // 进行处理，在这里是据此添加到数据库或者更新数据
-            dao.add(grade);
+            service.add(grade);
         } catch (Exception e) {
             System.out.println(e.getClass() + " : " + e.getMessage());
         }
@@ -77,12 +76,12 @@ public class GradeController {
             page = 1;
         }
 
-        pageCount = dao.getGradeList().size() / ConfigRead.PageCnt + 1;
+        pageCount = service.getGradeList().size() / ConfigRead.PageCnt + 1;
 
         req.setAttribute("page", page);
 
 
-        List<Grade> list = dao.getGradeByClassName(keywords, page);
+        List<Grade> list = service.getGradeByClassName(keywords, page);
 
         HttpSession session = req.getSession();
         session.setAttribute("GradeList", list);

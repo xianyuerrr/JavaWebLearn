@@ -6,6 +6,7 @@ import com.xianyue.mySSM.dao.BaseDao;
 import java.util.List;
 
 /**
+ * @Description 提供基础的、与数据库打交道的操作
  * @auther xianyue
  * @date 2022/2/14 - 星期一 - 13:24
  **/

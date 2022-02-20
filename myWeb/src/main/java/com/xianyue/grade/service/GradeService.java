@@ -1,13 +1,13 @@
-package com.xianyue.grade.dao;
+package com.xianyue.grade.service;
+
+import com.xianyue.grade.dao.Grade;
 
 import java.util.List;
 
 /**
- * @Description dao 层中方法都是单精度或者叫细粒度方法。比较简单，与数据库打交道。
- * @auther xianyue
- * @date 2022/2/14 - 星期一 - 17:07
- **/
-public interface GradeDao {
+ * @Description service 层的方法属于业务方法，粒度比较粗。比较复杂，一般包含多个 dao 层方法。比如 注册
+ */
+public interface GradeService {
     List<Grade> getGradeList();
     List<Grade> getGradeList(int page);
     Grade getGradeByClassCode(String ClassCode);
