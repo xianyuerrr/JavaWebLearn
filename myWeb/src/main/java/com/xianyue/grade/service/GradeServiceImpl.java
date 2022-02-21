@@ -2,7 +2,6 @@ package com.xianyue.grade.service;
 
 import com.xianyue.grade.dao.Grade;
 import com.xianyue.grade.dao.GradeDao;
-import com.xianyue.grade.dao.GradeDaoImpl;
 
 import java.util.List;
 
@@ -10,45 +9,45 @@ import java.util.List;
  * @Description 比 dao 稍微复杂些，面向业务逻辑，调用 dao 实现
  */
 public class GradeServiceImpl implements GradeService{
-    GradeDao dao = new GradeDaoImpl();
+    private static GradeDao gradeDao = null;
 
     @Override
     public List<Grade> getGradeList() {
-        return dao.getGradeList();
+        return gradeDao.getGradeList();
     }
 
     @Override
     public List<Grade> getGradeList(int page) {
-        return dao.getGradeList(page);
+        return gradeDao.getGradeList(page);
     }
 
     @Override
     public Grade getGradeByClassCode(String classCode) {
-        return dao.getGradeByClassCode(classCode);
+        return gradeDao.getGradeByClassCode(classCode);
     }
 
     @Override
     public List<Grade> getGradeByClassName(String className) {
-        return dao.getGradeByClassName(className);
+        return gradeDao.getGradeByClassName(className);
     }
 
     @Override
     public List<Grade> getGradeByClassName(String className, int page) {
-        return dao.getGradeByClassName(className, page);
+        return gradeDao.getGradeByClassName(className, page);
     }
 
     @Override
     public int add(Grade grade) {
-        return dao.add(grade);
+        return gradeDao.add(grade);
     }
 
     @Override
     public int update(Grade grade) {
-        return dao.update(grade);
+        return gradeDao.update(grade);
     }
 
     @Override
     public int delete(String classCode) {
-        return dao.delete(classCode);
+        return gradeDao.delete(classCode);
     }
 }

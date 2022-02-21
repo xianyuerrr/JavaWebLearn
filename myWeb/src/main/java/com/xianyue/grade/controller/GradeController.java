@@ -2,7 +2,6 @@ package com.xianyue.grade.controller;
 
 import com.xianyue.grade.dao.Grade;
 import com.xianyue.grade.service.GradeService;
-import com.xianyue.grade.service.GradeServiceImpl;
 import com.xianyue.mySSM.ConfigRead;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,14 +14,14 @@ import java.util.List;
  * @date 2022/2/17 - 星期四 - 20:14
  **/
 public class GradeController {
-    private static final GradeService service = new GradeServiceImpl();
+    private static GradeService gradeService = null;
 
     protected String delete(HttpServletRequest req, HttpServletResponse resp) {
         String classCode = req.getParameter("classCode");
         if (classCode == null || "".equals(classCode)) {
             System.out.println("classCode 为空");
         }
-        service.delete(classCode);
+        gradeService.delete(classCode);
         return "redirect:grade";
     }
 
@@ -31,7 +30,7 @@ public class GradeController {
         String classCode = req.getParameter("classCode");
         Grade grade = null;
         if (classCode != null && classCode != "") {
-            grade = service.getGradeByClassCode(classCode);
+            grade = gradeService.getGradeByClassCode(classCode);
         }
         req.setAttribute("grade", grade);
         return "processTemplate:update";
@@ -51,7 +50,7 @@ public class GradeController {
             Grade grade = new Grade(classCode, className, credit, semester, usualGrades, finalGrades, overallGrades);
 
             // 进行处理，在这里是据此添加到数据库或者更新数据
-            service.add(grade);
+            gradeService.add(grade);
         } catch (Exception e) {
             System.out.println(e.getClass() + " : " + e.getMessage());
         }
@@ -76,12 +75,12 @@ public class GradeController {
             page = 1;
         }
 
-        pageCount = service.getGradeList().size() / ConfigRead.PageCnt + 1;
+        pageCount = gradeService.getGradeList().size() / ConfigRead.PageCnt + 1;
 
         req.setAttribute("page", page);
 
 
-        List<Grade> list = service.getGradeByClassName(keywords, page);
+        List<Grade> list = gradeService.getGradeByClassName(keywords, page);
 
         HttpSession session = req.getSession();
         session.setAttribute("GradeList", list);

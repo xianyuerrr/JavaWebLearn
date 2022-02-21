@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans>
-    <bean name="grade" class="com.xianyue.grade.controller.GradeController"/>
+    <bean id="grade" class="com.xianyue.grade.controller.GradeController">
+        <property name="gradeService" ref="gradeService"/>
+    </bean>
+
+    <bean id="gradeService" class="com.xianyue.grade.service.GradeServiceImpl">
+        <property name="gradeDao" ref="gradeDao"/>
+    </bean>
+
+    <bean id="gradeDao" class="com.xianyue.grade.dao.GradeDaoImpl"/>
 </beans>
