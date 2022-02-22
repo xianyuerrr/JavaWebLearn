@@ -3,6 +3,7 @@ package com.xianyue.mySSM.service;
 import com.xianyue.mySSM.io.BeanFactory;
 import com.xianyue.mySSM.io.ClassPathXmlApplicationContext;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,13 @@ import java.lang.reflect.Method;
 // 将请求都在此中央处理器拦截
 @WebServlet(name = "dispatcher", value = "/*")
 public class DispatcherServlet extends ViewBaseServlet{
-    BeanFactory beanFactory = new ClassPathXmlApplicationContext();
+    private BeanFactory beanFactory;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        beanFactory = new ClassPathXmlApplicationContext();
+    }
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -83,6 +90,7 @@ public class DispatcherServlet extends ViewBaseServlet{
             // 所以 GradeController 已经没有必要继承 ViewBaseServlet，可以由 DispatcherServlet 对模板解析进行接管
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
+            throw new DispatcherServletException("DispatcherServlet出错了...");
         }
     }
 }

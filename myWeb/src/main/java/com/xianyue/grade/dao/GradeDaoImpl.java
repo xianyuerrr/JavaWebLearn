@@ -123,6 +123,11 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
                 );
     }
 
+    /**
+     * @Description 删除数据
+     * @param classCode
+     * @return
+     */
     @Override
     public int delete(String classCode) {
         String sql = "DELETE FROM grade WHERE 课程代码 = ?";
@@ -130,9 +135,4 @@ public class GradeDaoImpl extends BaseDao<Grade> implements GradeDao {
         return res;
     }
 
-    /**
-     * @Description 删除数据
-     * @param grade
-     * @return
-     */
 }

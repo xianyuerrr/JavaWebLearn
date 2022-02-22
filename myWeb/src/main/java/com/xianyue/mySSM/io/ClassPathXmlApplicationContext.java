@@ -19,11 +19,15 @@ import java.util.Objects;
 
 public class ClassPathXmlApplicationContext implements BeanFactory{
     public final Map<String, Object> beanMap = new HashMap<>();
-    public String configPath = "application.xml";
+    public static String configPath = "application.xml";
 
     public ClassPathXmlApplicationContext() {
+        this(configPath);
+    }
+
+    public ClassPathXmlApplicationContext(String path) {
         // 获取所有的bean节点
-        NodeList beanNodeList = getBeanNodeList(configPath);
+        NodeList beanNodeList = getBeanNodeList(path);
 
         // 实例化配置文件中的 bean 对象，装入 beanMap 容器
         creatBean(beanNodeList);
