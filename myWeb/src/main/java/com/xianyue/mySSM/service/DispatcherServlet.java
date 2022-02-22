@@ -1,8 +1,8 @@
 package com.xianyue.mySSM.service;
 
 import com.xianyue.mySSM.io.BeanFactory;
-import com.xianyue.mySSM.io.ClassPathXmlApplicationContext;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +26,14 @@ public class DispatcherServlet extends ViewBaseServlet{
     @Override
     public void init() throws ServletException {
         super.init();
-        beanFactory = new ClassPathXmlApplicationContext();
+        // beanFactory = new ClassPathXmlApplicationContext();
+        ServletContext application = getServletContext();
+        Object beanFactoryObj = application.getAttribute("beanFactory");
+        if (beanFactoryObj != null && beanFactoryObj instanceof BeanFactory) {
+            beanFactory = (BeanFactory) beanFactoryObj;
+        } else {
+            throw new DispatcherServletException("获取 beanFactory 失败");
+        }
     }
 
     @Override

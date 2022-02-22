@@ -1,6 +1,6 @@
 package com.xianyue.mySSM.filter;
 
-import com.xianyue.mySSM.trans.TransactionManager;
+import com.xianyue.mySSM.tran.TransactionManager;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

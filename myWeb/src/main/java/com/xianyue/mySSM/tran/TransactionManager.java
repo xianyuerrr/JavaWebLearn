@@ -1,4 +1,4 @@
-package com.xianyue.mySSM.trans;
+package com.xianyue.mySSM.tran;
 
 import com.xianyue.mySSM.dao.ConnectionUtils;
 
