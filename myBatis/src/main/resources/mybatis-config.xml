@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 核心配置文件中的标签必须按照固定的顺序： -->
+    <!-- properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorF -->
+    <!-- actory?,plugins?,environments?,databaseIdProvider?,mappers? -->
+
+    <properties resource="jdbc.properties"/>
+    <!-- <properties> -->
+    <!--     <property name="driver" value="com.mysql.cj.jdbc.Driver"/> -->
+    <!--     <property name="url" value="jdbc:mysql://localhost:3306/me"/> -->
+    <!--     <property name="username" value="root"/> -->
+    <!--     <property name="password" value="123456"/> -->
+    <!-- </properties> -->
+
+    <!-- 解决数据库列名与类属性名不一致的情况 2 : 在 mybatis-config 的 settings 中设置全局映射 -->
+    <settings>
+        <!-- 将 a_b 映射成 aB -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    <typeAliases>
+        <!-- 类型别名，不区分大小写 -->
+        <!-- 若不设置 alias，类名就是别名 -->
+        <typeAlias type="com.xianyue.grade.pojo.Grade" alias="GradePojo"/>
+
+        <!-- 以包为单位，设置默认类型别名，且类名不区分大小写 -->
+        <package name="com.xianyue.grade"/>
+    </typeAliases>
+
+    <!-- 配置连接数据库的环境 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- transactionManager 也可设置为 MANGED，表示被诸如 Spring 之类的管理 -->
+            <transactionManager type="JDBC"/>
+
+            <!-- type : POOLED | UNPOOLED | JNDI -->
+            <!-- POOLED : 使用数据库连接池 -->
+            <!-- UNPOOLED : 不使用数据库连接池 -->
+            <!-- JNDI : 使用上下文中的数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 引入映射文件 -->
+    <mappers>
+        <!-- 以包为单位引入映射文件 -->
+        <!-- 1. mapper 接口所在的包要和映射文件所在的包一致 -->
+        <!-- 2. mapper 接口要和映射文件的名字一致 -->
+        <mapper resource="mappers/GradeMapper.xml"/>
+        <!-- <package name="mappers"/> -->
+    </mappers>
+
+</configuration>

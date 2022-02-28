@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xianyue.grade.mapper.GradeMapper">
+    <resultMap id="Grade" type="com.xianyue.grade.pojo.Grade">
+        <id property="classCode" column="课程代码"/>
+        <result property="className" column="课程名称"/>
+        <result property="credit" column="学分"/>
+        <result property="semester" column="学年学期"/>
+        <result property="usualGrades" column="平时成绩"/>
+        <result property="finalGrades" column="期末成绩"/>
+        <result property="overallGrades" column="总成绩"/>
+    </resultMap>
+
+    <!-- List<Grade> getGradeList(int page); -->
+    <select id="getGradeList" resultMap="Grade">
+        SELECT * FROM grade;
+    </select>
+
+    <!-- Grade getGradeByClassCode(@Param("classCode") String classCode); -->
+    <select id="getGradeByClassCode" resultMap="Grade">
+        SELECT * FROM grade WHERE 课程代码 = #{classCode};
+    </select>
+
+    <!-- List<Grade> getGradeByClassName(@Param("className") String className); -->
+    <select id="getGradeByClassName" resultMap="Grade">
+        SELECT * FROM grade WHERE 课程名称 LIKE "%${className}%";
+    </select>
+
+    <!-- int add(@Param("grade") Grade grade); -->
+    <insert id="add">
+        INSERT INTO grade (课程代码, 课程名称, 学分, 学年学期, 平时成绩, 期末成绩, 总成绩)
+            VALUES(#{classCode}, #{className}, #{credit}, #{semester}, #{usualGrades}, #{finalGrades}, #{overallGrades})
+    </insert>
+
+    <!-- int update(@Param("grade") Grade grade); -->
+    <update id="update">
+        UPDATE grade SET 课程名称 = #{className}, 学分 = #{credit}, 学年学期 = #{semester}, 平时成绩 = #{usualGrades},
+                         期末成绩 = #{finalGrades}, 总成绩 = #{overallGrades}
+                WHERE 课程代码 = #{classCode};
+    </update>
+
+    <!-- int delete(@Param("classCode") String classCode); -->
+    <delete id="delete">
+        DELETE FROM grade WHERE 课程代码 = #{classCode};
+    </delete>
+</mapper>
